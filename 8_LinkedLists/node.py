@@ -9,9 +9,8 @@ class Node(object):
     def __eq__(self, other):
         return self.data == other.data
 
+
 # Helper functions
-
-
 def list_length(node):
     return len(get_list_from_head(node))
 
