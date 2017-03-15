@@ -1,0 +1,1 @@
+### Solutions to [Elements of Programming Interviews in Java](https://www.amazon.com/Elements-Programming-Interviews-Questions-Tsung-Hsien/dp/B00C7F0V3W/ref=sr_1_fkmr0_2?s=books&ie=UTF8&qid=1489538367&sr=1-2-fkmr0&keywords=elements+of+programming+interviews+in+java+2015) in Python
