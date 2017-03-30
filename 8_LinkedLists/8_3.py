@@ -4,7 +4,7 @@ from node import *
 def find_cycle(head):
     fast = slow = head
     while fast is not None and fast.next is not None and fast.next.next is not None:
-        fast = fast.next
+        fast = fast.next.next
         slow = slow.next
         if slow == fast:  # There is a cycle
             slow = head
