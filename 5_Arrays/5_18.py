@@ -43,6 +43,15 @@ def spiral_order_opt(matrix):
     Given: a matrix
     Returns: the given matrix in spiral order
     """
+
+    def not_in_range(index):
+        """
+        Int -> Boolean
+        Given: a single coordinate of the matrix
+        Returns: True iff the given coordinate is not in the matrix
+        """
+        return index < 0 or index > n - 1
+
     SHIFT = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     direction = x = y = 0
     result = []
@@ -52,7 +61,7 @@ def spiral_order_opt(matrix):
         result.append(matrix[x][y])
         matrix[x][y] = float("inf")
         new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
-        if (new_x not in range(n)) or (new_y not in range(n)) or (matrix[new_x][new_y] == float("inf")):
+        if not_in_range(new_x) or not_in_range(new_y) or (matrix[new_x][new_y] == float("inf")):
             direction = (direction + 1) & 3
             new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
         x, y = new_x, new_y
