@@ -1,3 +1,5 @@
 # Jupyter notebook
 .ipynb_checkpoints/
 
+# Environments
+venv/
