@@ -1,9 +1,9 @@
 def power(x, y):
-    '''
+    """
     Int Int -> Float
     Given: two integers x and y
     Returns: x to the power y
-    '''
+    """
     result, power = 1.0, y
     if y < 0:
         power, x = -power, 1.0 / x

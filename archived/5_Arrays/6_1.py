@@ -32,7 +32,7 @@ def partition(A, lo, hi):
         exch(A, i, j)
 
     A[j], A[lo] = A[lo], A[j]
-    #exch(A, j, lo)
+    # exch(A, j, lo)
     return j
 
 
@@ -47,5 +47,6 @@ def sortHelper(A, lo, hi):
     j = partition(A, lo, hi)
     sortHelper(A, lo, j - 1)
     sortHelper(A, j, hi)
+
 
 sort([5, 4, 3])

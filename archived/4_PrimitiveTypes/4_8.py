@@ -1,10 +1,9 @@
-
 def reverse(x):
-    '''
+    """
     Int -> Int
     Given: an integer x
     Returns: the same x, reversed
-    '''
+    """
     result, x_remaining = 0, abs(x)
 
     while x_remaining:

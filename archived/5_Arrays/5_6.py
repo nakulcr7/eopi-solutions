@@ -32,7 +32,10 @@ def longest_equal_subarray(nums):
 
 if __name__ == "__main__":
     # Max profit
-    assert buy_and_sell_stock_once([310, 315, 275, 295, 260, 270, 290, 230, 255, 250]) == 30
+    assert (
+        buy_and_sell_stock_once([310, 315, 275, 295, 260, 270, 290, 230, 255, 250])
+        == 30
+    )
 
     # Longest Equal Subarray
     assert longest_equal_subarray([1, 2, 2, 2, 3, 3, 4, 4]) == [2, 2, 2]

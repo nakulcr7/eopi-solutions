@@ -22,17 +22,10 @@ def spiral_order(matrix):
             return [matrix[depth][depth]]
 
         boundary_points = []
-        boundary_points.extend(
-            matrix[depth][depth:-1 - depth])
-        boundary_points.extend(
-            list(zip(*matrix))[-1 - depth][depth:-1-depth]
-        )
-        boundary_points.extend(
-            matrix[-1 - depth][-1 - depth:depth:-1]
-        )
-        boundary_points.extend(
-            list(zip(*matrix))[depth][-1 - depth:depth:-1]
-        )
+        boundary_points.extend(matrix[depth][depth : -1 - depth])
+        boundary_points.extend(list(zip(*matrix))[-1 - depth][depth : -1 - depth])
+        boundary_points.extend(matrix[-1 - depth][-1 - depth : depth : -1])
+        boundary_points.extend(list(zip(*matrix))[depth][-1 - depth : depth : -1])
         return boundary_points
 
     result = []
@@ -66,7 +59,11 @@ def spiral_order_opt(matrix):
         result.append(matrix[x][y])
         matrix[x][y] = float("inf")
         new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
-        if not_in_range(new_x) or not_in_range(new_y) or matrix[new_x][new_y] == float("inf"):
+        if (
+            not_in_range(new_x)
+            or not_in_range(new_y)
+            or matrix[new_x][new_y] == float("inf")
+        ):
             direction = (direction + 1) & 3
             new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
         x, y = new_x, new_y
@@ -79,13 +76,14 @@ def make_matrix_from_spiral(spiral_order_nums):
     Given: given a list of ints in spiral order
     Returns: a 2D matrix composed of the given list of ints
     """
+
     def not_int(num):
         """
         Int -> Boolean
         Given: a number
         Returns: True iff the given number is an integer
         """
-        return not(num - int(num) == 0)
+        return not (num - int(num) == 0)
 
     def not_in_range(index):
         """
@@ -112,7 +110,11 @@ def make_matrix_from_spiral(spiral_order_nums):
     for i in range(len(spiral_order_nums)):
         result[x][y] = spiral_order_nums[i]
         new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
-        if not_in_range(new_x) or not_in_range(new_y) or result[new_x][new_y] != float("inf"):
+        if (
+            not_in_range(new_x)
+            or not_in_range(new_y)
+            or result[new_x][new_y] != float("inf")
+        ):
             direction = (direction + 1) & 3
             new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
         x, y = new_x, new_y

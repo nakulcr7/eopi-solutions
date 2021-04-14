@@ -12,21 +12,28 @@ def is_valid_sudoku(puzzle):
         Returns: True iff the given list does not contain duplicates
         """
         array = [a for a in array if a != 0]
-        return not(len(array) == len(set(array)))
+        return not (len(array) == len(set(array)))
 
     n = len(puzzle)
 
     # Row and Column constraints
     if any(
-            has_duplicates([puzzle[i][j] for j in range(n)]) or
-            has_duplicates([puzzle[j][i] for j in range(n)])
-            for i in range(n)):
+        has_duplicates([puzzle[i][j] for j in range(n)])
+        or has_duplicates([puzzle[j][i] for j in range(n)])
+        for i in range(n)
+    ):
         return False
 
     # Region constraints
     region_size = sqrt(n)
-    return all(not has_duplicates([
-        puzzle[a][b]
-        for a in range(region_size * I, region_size * (I + 1))
-        for b in range(region_size * J, region_size * (J + 1))
-    ]) for I in range(region_size) for J in range(region_size))
+    return all(
+        not has_duplicates(
+            [
+                puzzle[a][b]
+                for a in range(region_size * I, region_size * (I + 1))
+                for b in range(region_size * J, region_size * (J + 1))
+            ]
+        )
+        for I in range(region_size)
+        for J in range(region_size)
+    )

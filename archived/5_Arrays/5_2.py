@@ -10,7 +10,7 @@ def plus_one(A):
         if A[i] != 10:
             break
         A[i] = 0
-        A[i-1] += 1
+        A[i - 1] += 1
     if A[0] == 10:
         A[0] = 1
         A.append(0)
@@ -37,7 +37,7 @@ def binary_sum(A, B):
     return out
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Plus One
     assert plus_one([1, 2, 9]) == [1, 3, 0]
     assert plus_one([9, 9, 9]) == [1, 0, 0, 0]

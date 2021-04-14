@@ -11,5 +11,6 @@ def random_sampling(A, k):
         A[i], A[r] = A[r], A[i]
     return A[:k]
 
+
 if __name__ == "__main__":
     assert len(random_sampling([3, 7, 5, 11], 3)) == 3
