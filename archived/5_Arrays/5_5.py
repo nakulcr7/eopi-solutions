@@ -57,11 +57,26 @@ def conditional_delete(A, m):
 if __name__ == "__main__":
     # Delete duplicates
     assert (dup_delete([])) == []
-    assert (dup_delete([2, 3, 5, 5, 7, 11, 11, 11, 13])) == [2, 3, 5, 7, 11, 13]
+    assert (dup_delete([2, 3, 5, 5, 7, 11, 11, 11, 13])) == [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+    ]
 
     # Delete key
     assert delete_key([], 0) == []
-    assert (delete_key([2, 3, 5, 5, 7, 11, 11, 11, 13], 5)) == [2, 3, 7, 11, 11, 11, 13]
+    assert (delete_key([2, 3, 5, 5, 7, 11, 11, 11, 13], 5)) == [
+        2,
+        3,
+        7,
+        11,
+        11,
+        11,
+        13,
+    ]
 
     # Conditional deletion
     assert (conditional_delete([2, 3, 5, 5, 7, 11, 11, 11, 13], 2)) == [

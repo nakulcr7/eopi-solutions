@@ -23,9 +23,13 @@ def spiral_order(matrix):
 
         boundary_points = []
         boundary_points.extend(matrix[depth][depth : -1 - depth])
-        boundary_points.extend(list(zip(*matrix))[-1 - depth][depth : -1 - depth])
+        boundary_points.extend(
+            list(zip(*matrix))[-1 - depth][depth : -1 - depth]
+        )
         boundary_points.extend(matrix[-1 - depth][-1 - depth : depth : -1])
-        boundary_points.extend(list(zip(*matrix))[depth][-1 - depth : depth : -1])
+        boundary_points.extend(
+            list(zip(*matrix))[depth][-1 - depth : depth : -1]
+        )
         return boundary_points
 
     result = []

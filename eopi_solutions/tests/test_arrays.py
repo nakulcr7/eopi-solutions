@@ -7,7 +7,7 @@ class TestArrays(unittest.TestCase):
     def test_partition_array(self) -> None:
         self.assertListEqual(arrays.partition_array([1, 3, 2], 2), [1, 2, 3])
         self.assertListEqual(arrays.partition_array([3, 2, 1], 1), [1, 2, 3])
-        
+
         # one possible version: [1, 2, 2, 3, 3, 4, 5]
         partitioned = arrays.partition_array([4, 3, 3, 5, 2, 2, 1], 2)
         self.assertTrue(all(i < 3 for i in partitioned[:3]))
