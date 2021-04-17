@@ -1,4 +1,6 @@
 import unittest
+from unittest.mock import patch
+
 
 from eopi_solutions import arrays
 
@@ -18,3 +20,8 @@ class TestArrays(unittest.TestCase):
         self.assertEqual(arrays.trade_single_stock([1, 2, 3]), 2)
         self.assertEqual(arrays.trade_single_stock([3, 2, 1]), 0)
         self.assertEqual(arrays.trade_single_stock([5, 1, 3, 2, 4, 1]), 3)
+    
+    def test_random_subset(self) -> None:
+        self.assertEqual(arrays.random_subset([1, 2, 3], 3), [1, 2, 3])
+        with patch("random.randint", side_effect=[0, 2, 4]):
+            self.assertEqual(arrays.random_subset([1, 2, 3, 4, 5], 3)[:3], [1, 3, 5])
