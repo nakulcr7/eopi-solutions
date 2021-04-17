@@ -25,3 +25,7 @@ class TestArrays(unittest.TestCase):
         self.assertEqual(arrays.random_subset([1, 2, 3], 3), [1, 2, 3])
         with patch("random.randint", side_effect=[0, 2, 4]):
             self.assertEqual(arrays.random_subset([1, 2, 3, 4, 5], 3)[:3], [1, 3, 5])
+
+    def test_spiral_order(self) -> None:
+        self.assertListEqual(arrays.spiral_order([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), [1, 2, 3, 6, 9, 8, 7, 4, 5])
+        self.assertListEqual(arrays.spiral_order([[1, 2], [3, 4]]), [1, 2, 4, 3])

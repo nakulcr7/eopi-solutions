@@ -69,3 +69,33 @@ def random_subset(A: List[int], x: int) -> List[int]:
         A[i], A[r] = A[r], A[i]
     
     return A
+
+"""
+5.16. Compute the spiral ordering of a 2D array.
+
+Write a program which takes an n x n 2D array and returns the spiral ordering
+of the array.
+"""
+
+def spiral_order(A: List[List[int]]):
+    SHIFT = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    direction = x = y = 0
+    result = []
+    n = len(A)
+
+    def not_in_range(index: int):
+        return index < 0 or index > n - 1
+
+    for _ in range(n ** 2):
+        result.append(A[x][y])
+        A[x][y] = float("inf")
+        new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
+        if (
+            not_in_range(new_x)
+            or not_in_range(new_y)
+            or A[new_x][new_y] == float("inf")
+        ):
+            direction = (direction + 1) % 4
+            new_x, new_y = x + SHIFT[direction][0], y + SHIFT[direction][1]
+        x, y = new_x, new_y
+    return result
