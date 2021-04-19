@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+from typing import List
 
-"""6.1. Interconvert strings and integers.
+
+"""6.1 Interconvert strings and integers.
 
 Implement an integer to string conversion function, and a string to integer
 conversion function.
@@ -77,3 +79,41 @@ def base_conversion(s: str, b1: int, b2: int) -> str:
     dec_s = get_decimal()
     s = num_to_b2(dec_s)
     return ("-" if is_negative else "") + s
+
+
+""" 6.4 Replace and Remove
+
+Write a program which takes as input an array of characters, and removes each
+`b` and replaces each `a` by two `d`s. Specificaly, along with the array, you
+are provided an integer-valued size. Size denotes the number of entries of the
+array that the operation is to be applied to. You do not have to worry about
+preserving subsequent entries. For example, if the arrays is [a, b, a, c, _]
+and the size is 4, then you can return [d, d, d, d, c]. You can assume there is
+enough space in the array to hold the final result.
+"""
+
+def replace_and_remove(A: List[str], n: int) -> List[str]:
+    # Forward iteration to remove `b`s and find # of `a`s.
+    write_idx, n_a = 0, 0
+    for i in range(n):
+        if A[i] != "b":
+            A[write_idx] = A[i]
+            write_idx += 1
+        if A[i] == "a":
+            n_a += 1
+
+    # Second iteration in reverse to sub `a` with `dd`.
+    read_idx = write_idx - 1
+    write_idx += n_a - 1
+    final_size = write_idx + 1
+
+    while read_idx >= 0:
+        if A[read_idx] == "a":
+            A[write_idx], A[write_idx - 1] = "d", "d"
+            write_idx -= 2
+        else:
+            A[write_idx] = A[read_idx]
+            write_idx -= 1
+        read_idx -= 1
+    
+    return A[:final_size]

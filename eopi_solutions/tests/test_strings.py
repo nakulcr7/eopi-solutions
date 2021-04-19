@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import unittest
 from eopi_solutions import strings
-from nose.tools import set_trace
 
 class TestStrings(unittest.TestCase):
     def test_int_to_str(self) -> None:
@@ -17,3 +16,9 @@ class TestStrings(unittest.TestCase):
     def test_base_conversion(self) -> None:
         self.assertEqual(strings.base_conversion("615", 7, 13), "1A7")
         self.assertEqual(strings.base_conversion("-615", 7, 13), "-1A7")
+    
+    def test_replace_and_remove(self) -> None:
+        self.assertListEqual(strings.replace_and_remove(["a", "c", "d", "b", "b", "c", "a"], 7), ["d", "d", "c", "d", "c", "d", "d"])
+        self.assertListEqual(strings.replace_and_remove(["x", "y", "z"], 3), ["x", "y", "z"])
+        self.assertListEqual(strings.replace_and_remove(["a", "b", "a", "c", None], 4), ["d", "d", "d", "d", "c"])
+        self.assertListEqual(strings.replace_and_remove(["a", "a", None, None], 2), ["d", "d", "d", "d"])
