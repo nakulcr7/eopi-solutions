@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import unittest
+
 from eopi_solutions import strings
+
 
 class TestStrings(unittest.TestCase):
     def test_int_to_str(self) -> None:

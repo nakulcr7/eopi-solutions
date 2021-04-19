@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch
 
-
 from eopi_solutions import arrays
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from typing import List
 from collections import deque, namedtuple
+from typing import List
 
 
 class Stack:
@@ -90,3 +90,40 @@ class StackWithMax:
     @property
     def max(self) -> int:
         return self._s[-1].max
+
+
+"""8.6 Compute binary tree notes in order of increasing depth.
+
+Given a binay tree, return an array consisting of keys at the same level. Keys
+should appear in the order of the corresponding nodes' depths, breaking ties
+from left to right.
+"""
+
+class Node:
+    def __init__(self, val: int, left=None, right=None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+    
+
+# Note: you don't need queues to solve this problem. See binary_trees.py for a
+# more concise solution.
+
+def binary_tree_depth_order(tree: Node) -> List[List[int]]:
+    curr_level_nodes = deque(tree)
+    res = []
+
+    while curr_level_nodes:
+        next_level_nodes, curr_level_values = deque(), [] 
+        while curr_level_nodes:
+            curr = curr_level_nodes.popleft()
+            if curr:
+                curr_level_values.append(curr.val)
+                next_level_nodes += [curr.left, curr.right]
+        if curr_level_values:
+            res.append(curr_level_values)
+        curr_level_values = next_level_nodes
+
+    return ret
+
+

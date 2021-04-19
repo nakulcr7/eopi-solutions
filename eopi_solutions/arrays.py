@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from typing import List
 import random
+from typing import List
 
 """
 5.1. The Dutch National Flag problem.

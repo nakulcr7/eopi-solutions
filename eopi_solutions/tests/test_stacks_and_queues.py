@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import unittest
-from eopi_solutions.stacks_and_queues import Stack, Queue, StackWithMax
+
+from eopi_solutions.stacks_and_queues import Queue, Stack, StackWithMax
 
 
 class TestStackAndQueues(unittest.TestCase):
